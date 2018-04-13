@@ -5,10 +5,12 @@
       <h1 class="title">
         sublove
       </h1>
+      <div id="netlify-modal"></div>
       <h2 class="subtitle">
         Nuxt.js project
       </h2>
       <div class="links">
+        <button @click="openLogin">Login</button>
         <a
           href="https://nuxtjs.org/"
           target="_blank"
@@ -23,11 +25,26 @@
 </template>
 
 <script>
+
+const netlifyIdentity = require("netlify-identity-widget")
+
 import AppLogo from '~/components/AppLogo.vue'
 
 export default {
   components: {
     AppLogo
+  },
+  methods: {
+    openLogin() {
+      console.log('asdf')
+      netlifyIdentity.open()
+    }
+  },
+  mounted() {
+    netlifyIdentity.init({
+      APIUrl: "https://hardcore-pare-432eda.netlify.com/.netlify/identity",
+      container: "#netlify-modal"
+    })
   }
 }
 </script>
