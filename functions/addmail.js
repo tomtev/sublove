@@ -10,7 +10,7 @@ exports.handler = function(event, context, callback) {
   }
 
   //-- Parse the body contents into an object.
-  const data = JSON.parse(event.body);
+  const data = JSON.parse(event.body)
 
   console.log(data)
 }
