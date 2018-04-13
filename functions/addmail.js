@@ -81,7 +81,7 @@ exports.handler = function (event, context, callback) {
     callback(null, {
       statusCode,
       headers,
-      body: 'Error'
+      body: JSON.stringify({ status: 'missing-information' })
     });
   }
 
